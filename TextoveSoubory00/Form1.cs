@@ -78,8 +78,16 @@ namespace Soubory
         private void button4_Click(object sender, EventArgs e)
         {
             //Přečtené řádky budeme zobrazovat v listbox
+           
 
             listBox1.Items.Clear();
+
+            StreamReader streamReader = new StreamReader("Text.txt");
+            while (!streamReader.EndOfStream)
+            {
+                string s = streamReader.ReadLine();
+                listBox1.Items.Add(s);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -100,9 +108,20 @@ namespace Soubory
         {
             //(Vytvoříme prázdné textové soubory)
 
+
             //Různé způsoby zápisu cesty: (Nelze jednoduše psát opačné lomítko)
             //Při programování aplikace používejte skoro vždy relativní cesty!!!
+            StreamWriter sw = new StreamWriter("text1.txt"); // v aktualni slozce                   
+            sw.Close();
 
+            sw = new StreamWriter("..\\..\\text2.txt");
+            sw.Close();
+            sw = new StreamWriter("../../text3.txt");
+            sw.Close();
+            sw = new StreamWriter(@"..\..\text4.txt");
+            sw.Close();
+            sw = new StreamWriter(@"..\..\soubory\text5.txt");
+            sw.Close();
         }
 
         private void button8_Click(object sender, EventArgs e)
