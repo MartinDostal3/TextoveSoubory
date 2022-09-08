@@ -129,6 +129,38 @@ namespace Soubory
             //Zobrazí vybraný soubor
             //Soubor vybereme pomocí komponenty OpenFileDialog nebo SaveFileDialog
             //Tyto dialogy nic neotevírají ani neukládají, jen nám umožní vybrat soubor, ostatní musíme naprogramovat sami
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                listBox3.Items.Clear();
+                StreamReader streamReader = new StreamReader(openFileDialog1.FileName);
+                while (!streamReader.EndOfStream)
+                {
+                   
+                    string s = streamReader.ReadLine();
+                    listBox3.Items.Add(s);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nebyl vybrán žádný soubor, ty nulo!");
+                //listBox3.Items.Add("nebyl vybrán soubor");
+            }
+
+
+            //save file dialog
+            listBox3.Items.Clear();
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog1.FileName);
+                sw.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Nebyl vybrán žádný soubor, ty nulo!");
+            }
+          
+            //OpenFileDialog ofd = new OpenFileDialog();
 
 
 
@@ -148,6 +180,11 @@ namespace Soubory
         }
 
         private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
