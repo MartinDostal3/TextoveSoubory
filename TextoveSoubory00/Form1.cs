@@ -178,6 +178,7 @@ namespace Soubory
             //Oba streamy zavřeme, původní soubor smažeme 
             //a pomocný soubor přejmenujeme na jméno původního souboru (včetně umístění)
             listBox4.Items.Clear();
+            listBox5.Items.Clear();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 
@@ -199,6 +200,14 @@ namespace Soubory
                 File.Delete(openFileDialog1.FileName);
                 File.Move("pomocny.txt", openFileDialog1.FileName);
 
+                //zobrazeni opraveneho souboru
+                streamReader = new StreamReader(openFileDialog1.FileName);
+                while (!streamReader.EndOfStream)
+                {
+                    string s = streamReader.ReadLine();
+                    listBox5.Items.Add(s);
+                }
+                streamReader.Close();
 
 
              
@@ -220,7 +229,21 @@ namespace Soubory
 
         private void button10_Click(object sender, EventArgs e)
         {
+            StreamWriter swU = new StreamWriter("kodovaniNeurceno.txt");
+            swU.WriteLine("vizaz");
+            swU.WriteLine("presivany");
+            swU.Close();
 
+            StreamWriter sw1250 = new StreamWriter("w1250.txt", false, Encoding.GetEncoding("Windows-1250"));
+            sw1250.WriteLine("vizáž");
+            sw1250.WriteLine("přešívaný");
+            sw1250.Close();
+
+
+            StreamWriter swDef = new StreamWriter("Default.txt", false, Encoding.Default);
+            sw1250.WriteLine("vizáž");
+            sw1250.WriteLine("přešívaný");
+            sw1250.Close();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
