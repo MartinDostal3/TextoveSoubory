@@ -173,10 +173,49 @@ namespace Soubory
             //V textovém souboru vybraném pomocí OpenFileDialogu zapíšeme
             //na konec každého řádku *
 
-            //Textový soubor opravíme tak, že jej celý čteme, opravemé řádky nebo znaky zapisujeme
+            //Textový soubor opravíme tak, že jej celý čteme, opravené řádky nebo znaky zapisujeme
             //do pomocného textového souboru.
             //Oba streamy zavřeme, původní soubor smažeme 
             //a pomocný soubor přejmenujeme na jméno původního souboru (včetně umístění)
+            listBox4.Items.Clear();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                StreamReader streamReader = new StreamReader(openFileDialog1.FileName);
+                StreamWriter sw = new StreamWriter("pomocny.txt");
+                
+                while (!streamReader.EndOfStream)
+                {
+                    
+                    string line = streamReader.ReadLine();
+                    listBox4.Items.Add(line);
+                    line += "*";
+                    sw.WriteLine(line);
+                   
+                }
+                streamReader.Close();
+                sw.Close();
+
+                File.Delete(openFileDialog1.FileName);
+                File.Move("pomocny.txt", openFileDialog1.FileName);
+
+
+
+             
+
+            }
+       
+            else
+            {
+                MessageBox.Show("Nebyl vybrán žádný soubor");
+                
+            }
+
+
+
+
+
+
         }
 
         private void button10_Click(object sender, EventArgs e)
