@@ -45,7 +45,7 @@
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -209,20 +209,20 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // listBox6
+            // textBox1
             // 
-            this.listBox6.FormattingEnabled = true;
-            this.listBox6.Location = new System.Drawing.Point(728, 334);
-            this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(177, 212);
-            this.listBox6.TabIndex = 15;
+            this.textBox1.Location = new System.Drawing.Point(728, 338);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(269, 208);
+            this.textBox1.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 558);
-            this.Controls.Add(this.listBox6);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.listBox5);
             this.Controls.Add(this.listBox4);
@@ -241,6 +241,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -263,7 +264,7 @@
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.ListBox listBox5;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

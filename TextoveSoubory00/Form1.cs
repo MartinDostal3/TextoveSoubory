@@ -241,9 +241,24 @@ namespace Soubory
 
 
             StreamWriter swDef = new StreamWriter("Default.txt", false, Encoding.Default);
-            sw1250.WriteLine("vizáž");
-            sw1250.WriteLine("přešívaný");
-            sw1250.Close();
+            swDef.WriteLine("vizáž");
+            swDef.WriteLine("přešívaný");
+            swDef.Close();
+
+            StreamReader sr = new StreamReader("KodovaniNeurceno.txt");
+            textBox1.Text = "Kódování jsme neurcili" + "\r\n";
+            textBox1.Text += sr.ReadToEnd();
+            sr.Close();
+
+           sr = new StreamReader("w1250.txt");
+            textBox1.Text += "\r\nSoubor Windows1250\r\n";
+            textBox1.Text += sr.ReadToEnd();
+            sr.Close();
+
+            sr = new StreamReader("Default.txt");
+            textBox1.Text += "\r\nSoubor defaultní kódování\r\n";
+            textBox1.Text += sr.ReadToEnd();
+            sr.Close();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
