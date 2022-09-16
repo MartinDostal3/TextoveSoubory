@@ -245,17 +245,17 @@ namespace Soubory
             swDef.WriteLine("přešívaný");
             swDef.Close();
 
-            StreamReader sr = new StreamReader("KodovaniNeurceno.txt");
+            StreamReader sr = new StreamReader("KodovaniNeurceno.txt"/*, Encoding.Unicode - nemusi byt, uz je v unicodu*/);
             textBox1.Text = "Kódování jsme neurcili" + "\r\n";
             textBox1.Text += sr.ReadToEnd();
             sr.Close();
 
-           sr = new StreamReader("w1250.txt");
+           sr = new StreamReader("w1250.txt", Encoding.GetEncoding(1250));
             textBox1.Text += "\r\nSoubor Windows1250\r\n";
             textBox1.Text += sr.ReadToEnd();
             sr.Close();
 
-            sr = new StreamReader("Default.txt");
+            sr = new StreamReader("Default.txt", Encoding.Default);
             textBox1.Text += "\r\nSoubor defaultní kódování\r\n";
             textBox1.Text += sr.ReadToEnd();
             sr.Close();
